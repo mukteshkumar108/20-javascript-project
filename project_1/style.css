@@ -1,0 +1,5 @@
+.trophy-icon {
+  color: #b19fff; /* The base purple */
+  filter: drop-shadow(1px 0px 0px red) drop-shadow(-1px 0px 0px blue);
+  opacity: 0.8;
+}
