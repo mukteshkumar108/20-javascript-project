@@ -1,21 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz app</title>
-    <link rel="stylesheet" href="style.css">
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quizly - Ignite Your Curiosity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <li><a href="">Quizly</a></li>
-        <li><a href="">Play</a></li>
-        <li><a href="">Library</a></li>
-        <li><a href="">Settings</a></li>
-        <li><a href=""><img src="trophy.png" class="trophy-icon" alt="leaderboard"></a></li>
-        </ul>
-    </nav>
-
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-[#faf4ff] dark:bg-slate-900 shadow-none">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-screen-xl mx-auto">
+<div class="text-2xl font-black text-indigo-600 dark:text-indigo-400 tracking-tight font-headline">Quizly</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-indigo-700 dark:text-indigo-300 font-bold font-headline transition-opacity hover:opacity-80" href="#">Play</a>
+<a class="text-slate-500 dark:text-slate-400 font-headline transition-opacity hover:opacity-80" href="#">Library</a>
+<a class="text-slate-500 dark:text-slate-400 font-headline transition-opacity hover:opacity-80" href="#">Settings</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-200 text-indigo-600 dark:text-indigo-400">
+<span class="material-symbols-outlined" data-icon="emoji_events">emoji_events</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="Close up portrait of a smiling young person" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP7VDboAuWN-PxmBzyG7e4qtUP9E4oQEBJkSZlYnb_FDfZCYUzADvvGRdDDZxT5d8_C1_d4Q1_M5j1pqyG7J0wSGKWf6Lz47NghDHiyjohJT4diJFLiSvB7ifP_YLu66fBGbb9hr3g0lOWHPaIKci2MGzdPKUveieJP24P9gbi14EYaYNTc9EOcu8pOp2ePJUjO39ATlTY_ZYg0IRm7YnvQ1xct3CwKPe0gH5Rif8OXdLRPtiwLVZ9lm5tzzdZkBe5YYjMwipJ6_Yv"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto px-6 pt-12 pb-32">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+<div class="lg:col-span-7">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full mb-6 font-headline font-bold text-sm tracking-wide">
+<span class="material-symbols-outlined text-sm" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                    NEW SEASON LIVE
+                </div>
+<h1 class="text-5xl lg:text-7xl font-black font-headline text-on-background leading-tight mb-6">
+                    Test your <span class="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">wits</span>, win the <span class="bg-gradient-to-r from-tertiary to-tertiary-container bg-clip-text text-transparent">glory</span>.
+                </h1>
+<p class="text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+                    Join over 2 million players in the ultimate quest for knowledge. From pop culture to quantum physics, prove you're the smartest in the room.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-10 py-5 rounded-lg text-xl font-bold font-headline shadow-lg hover:opacity-90 active:scale-95 transition-all">
+                        Start Quiz
+                    </button>
+<button class="bg-surface-container-low text-primary px-10 py-5 rounded-lg text-xl font-bold font-headline hover:bg-surface-container transition-all active:scale-95">
+                        Browse Categories
+                    </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-square rounded-xl overflow-hidden shadow-2xl relative">
+<img alt="Quiz gameplay" class="w-full h-full object-cover" data-alt="Colorful abstract shapes popping out of a screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHkOLTzWmUS1LdeQzArD7pgquyzq-7Dbt0twkibAQ9Gwg9HPHv8riGA7TXsH2iFL7Wj9fik0gaCBejNNjOHb_hH41PtnYajlBxP4EsCE0YeZoeixMBtZibfuy0LrfIZwqKViDFevTM4mfPuTZTqOQOsud6ZIB1PpEtOIkgALU6CWoqFhFPJ27eKkShTK1AoJX__HsyalCWEgZQeL5aRnQkUharz3olMO_fEKtArE8WOqovafoKvoFKV6uUhZ_wsAtLSsCZ0exKcpXU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+<!-- Floating Badges -->
+<div class="absolute -top-6 -right-6 glass-effect p-6 rounded-xl shadow-xl flex items-center gap-4 border border-outline-variant/15">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<div class="font-bold font-headline">Daily Champion</div>
+<div class="text-xs text-on-surface-variant">Top 0.1% rank</div>
+</div>
+</div>
+<div class="absolute -bottom-6 -left-6 glass-effect p-6 rounded-xl shadow-xl flex items-center gap-4 border border-outline-variant/15">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<div class="font-bold font-headline">15 Day Streak</div>
+<div class="text-xs text-on-surface-variant">Keep it up!</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Features -->
+<section class="mb-24">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-black font-headline mb-4">Why Quizly?</h2>
+<p class="text-on-surface-variant max-w-lg mx-auto">Experience the most dynamic learning environment ever built, designed for the curious mind.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Card -->
+<div class="md:col-span-2 bg-surface-container-low rounded-xl p-10 flex flex-col justify-between overflow-hidden relative min-h-[400px]">
+<div class="z-10">
+<h3 class="text-3xl font-black font-headline mb-4">Live Multiplayer Battles</h3>
+<p class="text-on-surface-variant max-w-md">Challenge friends or strangers in real-time speed rounds. Fast fingers and faster minds win the day.</p>
+<button class="mt-8 text-primary font-bold flex items-center gap-2 group">
+                            Learn more <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
+<img alt="Gamers competing" class="absolute bottom-0 right-0 w-1/2 h-2/3 object-cover rounded-tl-xl" data-alt="Two people laughing and looking at their phones together" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOppznRVXTnlHReydVzz3My9Cxfrm6d8SioU4KBNAVJyTd5Yl224x5Rj2yhtP8u0MC_QmO55pZ8_KKFGC14G3Nm9ej2ND_bqElWK7OqCSgpIwgNivRHvt4-ulhU-WYUEnpjxupunKV5sFJKR8d72aJudnph1my2-Lf7qdiGDVLgrU_NZ5djJ08UK6XV8u_F9Puxdg_aK9BMnErFRC9DK42ZszbC71YRLiehZwYS0iUBUWQLr5DZGek8a-amHqlC0haMu9Ew-9B9zdI"/>
+</div>
+<!-- Square Card 1 -->
+<div class="bg-surface-container-highest rounded-xl p-10 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-white rounded-lg flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="psychology">psychology</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-2">Adaptive Learning</h3>
+<p class="text-sm text-on-surface-variant">Questions that grow with you. We adapt the difficulty based on your performance.</p>
+</div>
+<!-- Square Card 2 -->
+<div class="bg-tertiary-container/20 rounded-xl p-10 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-white rounded-lg flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="leaderboard">leaderboard</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-2">Global Rankings</h3>
+<p class="text-sm text-on-surface-variant">See where you stand against players from over 150 countries every week.</p>
+</div>
+<!-- Square Card 3 -->
+<div class="bg-secondary-container/20 rounded-xl p-10 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-white rounded-lg flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-2">AI Generators</h3>
+<p class="text-sm text-on-surface-variant">Create your own quizzes in seconds using our advanced topic generators.</p>
+</div>
+<!-- Wide Card -->
+<div class="md:col-span-3 bg-inverse-surface text-on-primary rounded-xl p-12 flex flex-col md:flex-row items-center gap-10">
+<div class="flex-1">
+<h3 class="text-3xl font-black font-headline mb-4 text-white">Unlock the Pro Experience</h3>
+<p class="text-inverse-on-surface">Get ad-free play, unlimited hints, and exclusive avatar customization for less than a coffee a week.</p>
+</div>
+<button class="bg-white text-inverse-surface px-8 py-4 rounded-full font-bold font-headline hover:bg-surface-variant transition-colors whitespace-nowrap">
+                        Go Pro Now
+                    </button>
+</div>
+</div>
+</section>
+<!-- Categories / Illustrations -->
+<section class="mb-24">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-3xl font-black font-headline mb-2">Popular Subjects</h2>
+<p class="text-on-surface-variant">Choose your battlefield</p>
+</div>
+<button class="text-primary font-bold">View all categories</button>
+</div>
+<div class="flex flex-wrap gap-4">
+<div class="px-6 py-4 bg-surface-container rounded-lg font-headline font-bold flex items-center gap-3 hover:bg-primary-container/20 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary" data-icon="palette">palette</span> Art &amp; Design
+                </div>
+<div class="px-6 py-4 bg-surface-container rounded-lg font-headline font-bold flex items-center gap-3 hover:bg-primary-container/20 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary" data-icon="science">science</span> Quantum Physics
+                </div>
+<div class="px-6 py-4 bg-surface-container rounded-lg font-headline font-bold flex items-center gap-3 hover:bg-primary-container/20 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary" data-icon="history_edu">history_edu</span> Modern History
+                </div>
+<div class="px-6 py-4 bg-surface-container rounded-lg font-headline font-bold flex items-center gap-3 hover:bg-primary-container/20 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary" data-icon="movie">movie</span> Cinema Classics
+                </div>
+<div class="px-6 py-4 bg-surface-container rounded-lg font-headline font-bold flex items-center gap-3 hover:bg-primary-container/20 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary" data-icon="travel_explore">travel_explore</span> Geography
+                </div>
+<div class="px-6 py-4 bg-surface-container rounded-lg font-headline font-bold flex items-center gap-3 hover:bg-primary-container/20 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary" data-icon="sports_soccer">sports_soccer</span> Sports Legends
+                </div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Visible on Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-t border-indigo-100/20 md:hidden shadow-[0_-20px_40px_rgba(50,41,79,0.06)] rounded-t-[3rem]">
+<a class="flex flex-col items-center justify-center bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-200 rounded-full px-6 py-2 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="videogame_asset" style="font-variation-settings: 'FILL' 1;">videogame_asset</span>
+<span class="font-['Manrope'] font-semibold text-[11px] uppercase tracking-wider mt-1">Play</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-6 py-2 hover:text-indigo-500 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="local_library">local_library</span>
+<span class="font-['Manrope'] font-semibold text-[11px] uppercase tracking-wider mt-1">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-6 py-2 hover:text-indigo-500 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Manrope'] font-semibold text-[11px] uppercase tracking-wider mt-1">Settings</span>
+</a>
+</nav>
+<!-- Footer for Web -->
+<footer class="hidden md:block bg-surface-container-low py-16">
+<div class="max-w-screen-xl mx-auto px-6 grid grid-cols-4 gap-12">
+<div class="col-span-2">
+<div class="text-2xl font-black text-indigo-600 tracking-tight font-headline mb-6">Quizly</div>
+<p class="text-on-surface-variant max-w-sm">The world's most playful knowledge platform. Join the movement and expand your horizons, one question at a time.</p>
+</div>
+<div>
+<h4 class="font-bold font-headline mb-6">Platform</h4>
+<ul class="space-y-4 text-on-surface-variant">
+<li><a class="hover:text-primary" href="#">Live Quizzes</a></li>
+<li><a class="hover:text-primary" href="#">Tournament Pro</a></li>
+<li><a class="hover:text-primary" href="#">Creator Hub</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold font-headline mb-6">Support</h4>
+<ul class="space-y-4 text-on-surface-variant">
+<li><a class="hover:text-primary" href="#">Help Center</a></li>
+<li><a class="hover:text-primary" href="#">Safety</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-screen-xl mx-auto px-6 mt-16 pt-8 border-t border-outline-variant/10 text-center text-sm text-on-surface-variant/60">
+            © 2024 Quizly Entertainment. All rights reserved.
+        </div>
+</footer>
 </body>
-</htmli
+</html>
+
